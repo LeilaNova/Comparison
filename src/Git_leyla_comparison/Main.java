@@ -13,7 +13,9 @@ public class Main {
         persons.add(new Person("Edward", "Hands", 23));
         persons.add(new Person("Bender", "Bending", 1066));
 
-        Collections.sort(persons, new PersonComparator());
+        persons.removeIf(person -> person.getAge()< 18);
+
+
         for (Person person : persons) {
             System.out.println(person);
         }
