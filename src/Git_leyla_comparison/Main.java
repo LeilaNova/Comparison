@@ -13,9 +13,24 @@ public class Main {
         persons.add(new Person("Edward", "Hands", 23));
         persons.add(new Person("Bender", "Bending", 1066));
 
-        Collections.sort(persons, new PersonComparator());
+        Collections.sort(persons, (o1, o2) -> {
+            int length1 = o1.getSurname().split("-").length;
+            int length2 = o2.getSurname().split("-").length;
+            if (length2 < length1) {
+                return -1;
+            }
+            if (length2 > length1) {
+                return 1;
+            }
+            return o2.getAge() - o1.getAge();
+        });
+
         for (Person person : persons) {
             System.out.println(person);
         }
     }
 }
+
+
+
+
